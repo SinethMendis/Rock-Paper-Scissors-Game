@@ -47,7 +47,7 @@
 // console.log(testing()) ;
 
 function getComputerChoice() {
-    const weapons = ["ROCK", "PAPER", "hrSCISSOR"] ;
+    const weapons = ["ROCK", "PAPER", "SCISSOR"] ;
     return weapons[Math.floor(Math.random() * weapons.length)] ;
 }
 
