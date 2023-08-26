@@ -1,54 +1,51 @@
-// function getComputerChoice() {
-//     const weapons = [rock, paper, scissor];
-//    ((Math.floor((Math.random())*weapons.length))+1) ;
-
-//     let randomNumber ;
-
-//     return weapons[randomNumber] ;
-// }
-
-// console.log(randomNumber) ;
-// console.log((Math.floor((Math.random())*10))+1) ;
-
-// const weapons = ["rock", "paper", "scissor"];
-// ((Math.floor((Math.random())*weapons.length))+1) ;
-// console.log(((Math.floor((Math.random()) * weapons.length)) + 1));
-
-
-// function getComputerChoice() {
-
-//     const weapons = ["rock", "paper", "scissor"];
-//     let randomNumber = (((Math.floor((Math.random()) * weapons.length + 1))));
-
-//     // return weapons[randomNumber] ;
-//     return randomNumber;
-
-// }
-
-// console.log(getComputerChoice());
-
-// function getComputerChoice() {
-//     const weapons = ["rock", "paper", "scissor"];
-//     let randomItem = (weapons[(Math.floor(Math.random() * weapons.length))]);
-//     return randomItem;
-
-// }
-// console.log(getComputerChoice());
-
-
-// function testing() {
-//     const weapons = ["rock", "paper", "scissor"];
-
-//     // return Math.floor(Math.random() * weapons.length)
-//     return weapons[Math.floor((Math.random()*weapons.length))];
-// }
-
-
-// console.log(testing()) ;
-
 function getComputerChoice() {
-    const weapons = ["ROCK", "PAPER", "SCISSOR"] ;
-    return weapons[Math.floor(Math.random() * weapons.length)] ;
+    const weapons = ["ROCK", "PAPER", "SCISSOR"];
+    return weapons[Math.floor(Math.random() * weapons.length)];
+
 }
 
-console.log(getComputerChoice()) ;
+function playRound(playerSelection, computerSelection) {
+
+    playerSelection = playerSelection.toUpperCase();
+    // computerSelection = computerSelection.toUpperCase(); Ignore this line of code (ITLC)
+    // console.log(computerSelection); (ITLC) 
+
+
+    if (playerSelection === "ROCK" && computerSelection === "PAPER") { return `You Lose Paper beats Rock`; }
+
+    else if (playerSelection === "ROCK" && computerSelection === "SCISSOR") { return `You Win Rock beats Scissor`; }
+
+
+    else if (playerSelection === "PAPER" && computerSelection === "SCISSOR") { return `You Lose Scissor beats Paper`; }
+
+
+    else if (playerSelection === "PAPER" && computerSelection === "ROCK") { return `You Win Paper beats Rock`; }
+
+
+    else if (playerSelection === "SCISSOR" && computerSelection === "PAPER") { return `You Win Scissor beats Paper`; }
+
+
+    else if (playerSelection === "SCISSOR" && computerSelection === "ROCK") { return `You Lose Rock beats Scissor`; }
+
+
+    else if (playerSelection === computerSelection) { return `Draw NO WINNER`; }
+
+    return `Invalid Selection`;
+}
+
+const playerSelection = "ROCk";
+const computerSelection = getComputerChoice();
+
+console.log(playRound(playerSelection, computerSelection));
+
+
+
+
+
+
+
+
+
+
+
+
