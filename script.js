@@ -7,9 +7,6 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
 
     playerSelection = playerSelection.toUpperCase();
-    // computerSelection = computerSelection.toUpperCase(); Ignore this line of code (ITLC)
-    // console.log(computerSelection); (ITLC) 
-
 
     if (playerSelection === "ROCK" && computerSelection === "PAPER") { return `You Lose! , Paper beats Rock`; }
 
@@ -33,10 +30,103 @@ function playRound(playerSelection, computerSelection) {
     return `Invalid Selection`;
 }
 
-const playerSelection = "";
-const computerSelection = getComputerChoice();
 
-console.log(playRound(playerSelection, computerSelection));
+let playerWinCounts = 0;
+let computerWinCounts = 0;
+
+function game() {
+
+
+    let playerSelection = prompt("Enter your weapon", "Rock , Paper or Scissor ?");
+    const computerSelection = getComputerChoice();
+
+    const result = (playRound(playerSelection, computerSelection));
+
+    {
+        if (result === `You Lose! , Paper beats Rock` || result === `You Lose! , Scissor beats Paper` || result === `You Lose! , Rock beats Scissor`) {
+            computerWinCounts++;
+        }
+        else if (result === `You Win! , Rock beats Scissor` || result === `You Win! , Paper beats Rock` || result === `You Win! , Scissor beats Paper`) {
+            playerWinCounts++;
+        }
+        else {
+            computerWinCounts = 0;
+            playerWinCounts = 0;
+        }
+    }
+
+    return `${result}       ComputerWins = ${computerWinCounts}  /  PlayerWins = ${playerWinCounts}`;
+
+
+}
+
+function functionRepeater(func, n) {
+    for (i = 1; i <= n; i++) {
+        console.log(func());
+    }
+}
+
+
+function lastResult() {
+
+    functionRepeater(game,5)
+
+
+    // console.log(game());
+    // console.log(game());
+    // console.log(game());
+    // console.log(game());
+    // console.log(game());
+
+
+    if (playerWinCounts > computerWinCounts) {
+        return `YOU WON THE GAME , LET'S PLAY AGAIN !`;
+    } else if (playerWinCounts < computerWinCounts) {
+        return `YOU LOST THE GAME , BETTER LUCK NEXT TIME`;
+    } else if (playerWinCounts = computerWinCounts) {
+        return `DRAW !`;
+    } else {
+        return `RELOAD AND TRY AGAIN`
+    }
+
+
+
+}
+
+console.log(lastResult());
+
+
+// console.log() is required to show something in the console.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
