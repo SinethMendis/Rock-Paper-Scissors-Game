@@ -49,9 +49,9 @@ function game() {
         else if (result === `You Win! , Rock beats Scissor` || result === `You Win! , Paper beats Rock` || result === `You Win! , Scissor beats Paper`) {
             playerWinCounts++;
         }
-        else {
-            computerWinCounts = 0;
-            playerWinCounts = 0;
+        else if( result === `Draw , NO WINNER!` || result ===`Invalid Selection`) {
+            computerWinCounts = computerWinCounts;
+            playerWinCounts = playerWinCounts;
         }
     }
 
@@ -69,15 +69,7 @@ function functionRepeater(func, n) {
 
 function lastResult() {
 
-    functionRepeater(game,5)
-
-
-    // console.log(game());
-    // console.log(game());
-    // console.log(game());
-    // console.log(game());
-    // console.log(game());
-
+    functionRepeater(game, 5)
 
     if (playerWinCounts > computerWinCounts) {
         return `YOU WON THE GAME , LET'S PLAY AGAIN !`;
